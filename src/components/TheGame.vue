@@ -5,7 +5,7 @@ import Renderer from './render/TheRenderer.vue'
 </script>
 
 <template>
-  <div v-touch:swipe="(e) => this.handleInput('gesture', e)">
+  <div v-touch:swipe="(e) => handleInput('gesture', e)">
   <Renderer
     :board='board'
     :moves='moves'
