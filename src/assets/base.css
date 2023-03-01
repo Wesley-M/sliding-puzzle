@@ -1,0 +1,48 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --pz-c-black: #282828;
+
+  --pz-c-white: #ffffff;
+  --pz-c-white-light-1: rgba(255, 255, 255, 0.9);
+  --pz-c-white-light-2: rgba(255, 255, 255, 0.7);
+
+  --pz-c-cyan: rgb(72, 162, 200);
+  --pz-c-cyan-light-1: rgb(72, 162, 200, 0.9);
+
+  --pz-c-cerulean: rgb(54, 117, 144);
+  --pz-c-cerulean-light-1: rgb(54, 117, 144, 0.8);
+  --pz-c-cerulean-light-2: rgb(54, 117, 144, 0.5);
+
+  --pz-c-orange: rgb(255, 113, 73);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--pz-c-cyan-light-1);
+  --color-background-dark: var(--pz-c-cyan);
+
+  --color-text: var(--pz-c-white);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
