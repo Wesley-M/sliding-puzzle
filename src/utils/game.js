@@ -1,6 +1,6 @@
 import {is_even, is_odd, mod} from './number'
 import {count_inversions, to_2d_array, shuffle, seq} from './array'
-import { KEYCODE_TO_ACTION, GESTURE_TO_ACTION } from '../config/config'
+import { KEYCODE_TO_ACTION } from '../config/config'
 
 /**
  * Game Utilities
@@ -10,8 +10,25 @@ export const keyboard_move = (board, e) => {
     return move(board, KEYCODE_TO_ACTION[e.keyCode]);
 }
 
-export const gesture_move = (board, e) => {
-    return move(board, GESTURE_TO_ACTION[e]);
+export const tap_move = (board, piece) => {
+    const blank_pos = get_blank_pos(board.flat());
+
+    const get_piece = (pos) => {
+        return is_valid_pos(board, pos.row, pos.col) ? board[pos.row][pos.col] : null;
+    }
+
+    // Mapping between the piece at the direction and
+    // the move direction
+    const piece_dir = {
+        [get_piece({...blank_pos, col: blank_pos.col - 1})]: "right",
+        [get_piece({ ...blank_pos, col: blank_pos.col + 1})]: "left",
+        [get_piece({ ...blank_pos, row: blank_pos.row - 1})]: "down",
+        [get_piece({ ...blank_pos, row: blank_pos.row + 1})]: "up"
+    }
+
+    if (piece_dir[piece]) {
+        move(board, piece_dir[piece]);
+    }
 }
 
 /**

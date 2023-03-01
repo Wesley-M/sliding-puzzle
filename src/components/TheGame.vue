@@ -1,11 +1,10 @@
 <script setup>
-import { new_board, is_solved, board_progress, keyboard_move, gesture_move } from '../utils/game'
+import { new_board, is_solved, board_progress, keyboard_move, tap_move } from '../utils/game'
 import { BOARD_SIDE, MIN_BOARD_SIDE, MAX_BOARD_SIDE } from '../config/config'
 import Renderer from './render/TheRenderer.vue'
 </script>
 
 <template>
-  <div v-touch:swipe="(e) => handleInput('gesture', e)">
   <Renderer
     :board='board'
     :moves='moves'
@@ -16,8 +15,8 @@ import Renderer from './render/TheRenderer.vue'
     @reset='reset'
     @decreaseBoardSize='decreaseBoardSize'
     @increaseBoardSize='increaseBoardSize'
+    @pieceTap='(e) => handleInput("tap", e)'
   />
-  </div>
 </template>
 
 <script>
@@ -43,7 +42,7 @@ export default {
     handleInput(type, ev) {
       if (this.freezed) return;
 
-      let moved = (type === 'keyboard') ? keyboard_move(this.board, ev) : gesture_move(this.board, ev);
+      let moved = (type === 'keyboard') ? keyboard_move(this.board, ev) : tap_move(this.board, ev);
 
       if (moved) this.moves++;
     },

@@ -25,11 +25,3 @@ export const KEYCODE_TO_ACTION = {
     39: "right",
     40: "down"
 }
-
-// Mapping from events of hammer.js to action
-export const GESTURE_TO_ACTION = {
-    "left": "left",
-    "right": "right",
-    "top": "up",
-    "bottom": "down"
-};

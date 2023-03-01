@@ -6,6 +6,7 @@ import { BOARD_SIDE_EM, FONT_SCALING_FACTOR } from '../../config/config'
   <td
     :class="{ 'is-correct': visible && isCorrect, 'piece': visible && !isCorrect }"
     :style="{ width: (BOARD_SIDE_EM / n) + 'em', height: (BOARD_SIDE_EM / n) + 'em'}"
+    @click="$parent.$parent.$emit('pieceTap', value)"
   >
     <p :style='{ fontSize: (FONT_SCALING_FACTOR / n) + "em" }'>{{ visible ? value : '' }}</p>
   </td>
@@ -36,6 +37,7 @@ p {
 
 <script>
 export default {
+  emits: [ 'pieceTap' ],
   props: {
     isCorrect: {
       type: Boolean,

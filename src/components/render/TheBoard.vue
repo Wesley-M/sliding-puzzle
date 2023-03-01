@@ -20,6 +20,7 @@ import BoardPiece from './BoardPiece.vue';
 
 <script>
 export default {
-    props: ["board"]
+  emits: [ 'pieceTap' ],
+  props: ["board"]
 }
 </script>
