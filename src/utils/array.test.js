@@ -34,6 +34,8 @@ test('Count inversions', () => {
   expect(count_inversions([3, 2])).toStrictEqual(1);
   expect(count_inversions([2])).toStrictEqual(0);
 
+  expect(count_inversions([1, 8, 2, 0, 4, 3, 7, 6, 5])).toStrictEqual(10);
+
   // Failed cases
   expect(count_inversions([])).toStrictEqual(0);
 });

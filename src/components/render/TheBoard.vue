@@ -10,7 +10,7 @@ import BoardPiece from './BoardPiece.vue';
                 <BoardPiece
                     v-for="piece in row" 
                     :key="piece" 
-                    :n="piece"
+                    :value="piece"
                     :isCorrect="in_correct_position(board, piece)"
                 />
             </tr>

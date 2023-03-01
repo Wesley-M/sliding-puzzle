@@ -85,13 +85,13 @@ export const to_2d_array = (array, rows, cols = rows) => {
  * 
  * PS: It's possible to use mergesort and clever code to count faster.
  * 
- * @param {Array} array An array
+ * @param {Array} array An 1d array
 */
-export const count_inversions = (array) => {
+export const count_inversions = (array1d) => {
     let invCount = 0;
-    for (let i = 0; i < array.length - 1; i++) {
-        for (let j = i + 1; j < array.length; j++) {
-            if (array[i] > array[j]) invCount++;
+    for (let i = 0; i < array1d.length - 1; i++) {
+        for (let j = i + 1; j < array1d.length; j++) {
+            if (array1d[i] && array1d[j] && array1d[i] > array1d[j]) invCount++;
         }
     }
     return invCount;

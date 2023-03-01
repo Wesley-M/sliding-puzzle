@@ -3,6 +3,8 @@ import TheBoard from './TheBoard.vue';
 import Instructions from './Instructions.vue';
 import BaseButton from '../ui/BaseButton.vue';
 import GameStats from "./GameStats.vue";
+import { BOARD_SIDE_EM } from '../../config/config'
+import YouWin from './YouWin.vue'
 </script>
 
 <template>
@@ -13,10 +15,11 @@ import GameStats from "./GameStats.vue";
             ?
         </BaseButton>
     </div>
-    <div class="game">
+    <div class="game" :style="{ minWidth: BOARD_SIDE_EM + 'em' }">
         <GameStats :moves="moves" :progress="progress"/>
         <TheBoard :board="board" />
-        <Instructions v-if="instructionsAreVisible" @closeInstructions="setInstructionsVisibility" />
+        <Instructions v-if="instructionsAreVisible && !won" @closeInstructions="setInstructionsVisibility" />
+        <YouWin v-if="won" />
     </div>
 </template>
 
@@ -33,12 +36,15 @@ import GameStats from "./GameStats.vue";
     padding: 0.5em;
     position: relative;
     z-index: 1;
+    display: flex;
+    place-items: center;
+    flex-direction: column;
 }
 </style>
 
 <script>
 export default {
-    emits: ['freeze', 'unfreeze'],
+    emits: ['freeze', 'unfreeze', 'increaseBoardSize', 'decreaseBoardSize', 'reset'],
     data() {
         return {
             instructionsAreVisible: false
@@ -54,6 +60,6 @@ export default {
             }
         }
     },
-    props: ["board", "moves", "progress"]
+    props: ["board", "moves", "progress", "won"]
 }
 </script>

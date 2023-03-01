@@ -8,7 +8,9 @@ import BaseButton from '../ui/BaseButton.vue';
             <div class="header">
                 <p>Instructions</p>
                 <div style="flex: 1"></div>
-                <BaseButton @click="$emit('closeInstructions')">x</BaseButton>
+                <BaseButton @click="$emit('closeInstructions')">
+                  <v-icon name='md-close'/>
+                </BaseButton>
             </div>
             <ul>
                 <li>Use the arrow keys to order the grid from 1 to 15;</li>

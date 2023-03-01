@@ -53,6 +53,11 @@ export const new_board = (n) => {
       pieces = shuffle(seq(0, n*n-1));
     } while (!is_solvable(pieces));
 
+    console.log("---")
+    console.table(to_2d_array(pieces, n))
+    console.table(`N: ${n} \t INV: ${count_inversions(pieces)} \t BLK: ${get_blank_pos(pieces).row} `);
+    console.log(is_even(n) ? `INV + BLK = ${count_inversions(pieces) + get_blank_pos(pieces).row} is odd.`  : '');
+
     return to_2d_array(pieces, n);
 }
 

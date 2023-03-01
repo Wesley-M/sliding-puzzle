@@ -4,9 +4,10 @@
 
 <style scoped>
     button {
-        width: 1.4em;
-        height: 1.4em;
-        border-radius: 1em;
+        line-height: 50%;
+        width: 1.6em;
+        height: 1.6em;
+        border-radius: 50%;
         border: none;
         color: white;
         font-size: 1.3em;
