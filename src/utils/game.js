@@ -26,9 +26,7 @@ export const tap_move = (board, piece) => {
         [get_piece({ ...blank_pos, row: blank_pos.row + 1})]: "up"
     }
 
-    if (piece_dir[piece]) {
-        move(board, piece_dir[piece]);
-    }
+    return (piece_dir[piece]) ? move(board, piece_dir[piece]) : false;
 }
 
 /**
