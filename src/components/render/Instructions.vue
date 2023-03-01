@@ -14,7 +14,7 @@ import BaseButton from '../ui/BaseButton.vue';
             </div>
             <ul>
                 <li>Use the arrow keys to order the grid from 1 to 15;</li>
-                <li>Or use swipe gestures to do the same.</li>
+                <li>Or tap the piece you want to move.</li>
             </ul>
         </div>
     </div>
