@@ -1,6 +1,6 @@
 import {is_even, is_odd, mod} from './number'
 import {count_inversions, to_2d_array, shuffle, seq} from './array'
-import { KEYCODE_TO_ACTION, HAMMER_TO_ACTION } from '../config/config';
+import { KEYCODE_TO_ACTION, GESTURE_TO_ACTION } from '../config/config'
 
 /**
  * Game Utilities
@@ -11,7 +11,7 @@ export const keyboard_move = (board, e) => {
 }
 
 export const gesture_move = (board, e) => {
-    return move(board, HAMMER_TO_ACTION[e.type]);
+    return move(board, GESTURE_TO_ACTION[e]);
 }
 
 /**

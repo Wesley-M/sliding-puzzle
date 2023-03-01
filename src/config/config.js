@@ -27,9 +27,9 @@ export const KEYCODE_TO_ACTION = {
 }
 
 // Mapping from events of hammer.js to action
-export const HAMMER_TO_ACTION = {
-    "swipeleft": "left",
-    "swiperight": "right",
-    "swipeup": "up",
-    "swipedown": "down"
+export const GESTURE_TO_ACTION = {
+    "left": "left",
+    "right": "right",
+    "top": "up",
+    "bottom": "down"
 };

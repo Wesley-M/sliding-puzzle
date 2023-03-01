@@ -14,9 +14,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "hammerjs": "^2.0.8",
     "oh-vue-icons": "^1.0.0-rc3",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue3-touch-events": "^4.1.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

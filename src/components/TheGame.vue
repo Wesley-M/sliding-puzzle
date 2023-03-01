@@ -1,13 +1,11 @@
 <script setup>
 import { new_board, is_solved, board_progress, keyboard_move, gesture_move } from '../utils/game'
 import { BOARD_SIDE, MIN_BOARD_SIDE, MAX_BOARD_SIDE } from '../config/config'
-import * as Hammer from 'hammerjs'
 import Renderer from './render/TheRenderer.vue'
-
-import { computed } from 'vue'
 </script>
 
 <template>
+  <div v-touch:swipe="(e) => this.handleInput('gesture', e)">
   <Renderer
     :board='board'
     :moves='moves'
@@ -19,14 +17,11 @@ import { computed } from 'vue'
     @decreaseBoardSize='decreaseBoardSize'
     @increaseBoardSize='increaseBoardSize'
   />
+  </div>
 </template>
 
 <script>
-// Setting up gesture support
-let hammertime = new Hammer(document.body)
-
-// Enabling vertical swipe event listeners
-hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL })
+import { computed } from 'vue'
 
 export default {
   data() {
@@ -40,19 +35,17 @@ export default {
   },
   created() {
     window.addEventListener('keydown', (e) => this.handleInput('keyboard', e))
-    hammertime.on('swipeleft swiperight swipeup swipedown', (e) => this.handleInput('gesture', e))
   },
   unmounted() {
     window.removeEventListener('keydown', (e) => this.handleInput('keyboard', e))
-    hammertime.off('swipeleft swiperight swipeup swipedown', (e) => this.handleInput('gesture', e))
   },
   methods: {
     handleInput(type, ev) {
-      if (this.freezed) return
+      if (this.freezed) return;
 
-      let moved = (type === 'keyboard') ? keyboard_move(this.board, ev) : gesture_move(this.board, ev)
+      let moved = (type === 'keyboard') ? keyboard_move(this.board, ev) : gesture_move(this.board, ev);
 
-      if (moved) this.moves++
+      if (moved) this.moves++;
     },
     freeze() {
       this.freezed = true;
